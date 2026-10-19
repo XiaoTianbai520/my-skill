@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "2705216b-5c54-46e9-a705-11c5f0b3c240",
+  "path": "comfyui",
+  "path_key": "comfyui",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "aece890b-782b-4d8c-94c4-df2aa066d3ac",
+  "path": "plantuml",
+  "path_key": "plantuml",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

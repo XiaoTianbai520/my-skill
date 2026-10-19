@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "57a15214-ee1e-44a1-b384-f3e4b86acd6f",
+  "path": "seedance",
+  "path_key": "seedance",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

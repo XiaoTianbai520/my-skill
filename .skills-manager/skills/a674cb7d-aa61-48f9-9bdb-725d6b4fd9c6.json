@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a674cb7d-aa61-48f9-9bdb-725d6b4fd9c6",
+  "path": "video-probe",
+  "path_key": "video-probe",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

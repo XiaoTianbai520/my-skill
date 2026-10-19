@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "e61fd80d-5c0c-4f2f-ae3b-4d2ecc536059",
+  "path": "write-api-docs",
+  "path_key": "write-api-docs",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

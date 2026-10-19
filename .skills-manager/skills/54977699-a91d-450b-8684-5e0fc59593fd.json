@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "54977699-a91d-450b-8684-5e0fc59593fd",
+  "path": "h3-prompt-writing-2",
+  "path_key": "h3-prompt-writing-2",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

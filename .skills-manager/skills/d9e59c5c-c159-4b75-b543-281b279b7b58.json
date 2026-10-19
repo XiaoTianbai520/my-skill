@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d9e59c5c-c159-4b75-b543-281b279b7b58",
+  "path": "minimax-h3",
+  "path_key": "minimax-h3",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

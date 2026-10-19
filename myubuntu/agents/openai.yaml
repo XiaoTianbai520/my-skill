@@ -1,0 +1,4 @@
+interface:
+  display_name: "MyUbuntu"
+  short_description: "管理个人 Ubuntu 服务器目录、服务与安全运维"
+  default_prompt: "Use $myubuntu to inspect or operate my Ubuntu server safely."

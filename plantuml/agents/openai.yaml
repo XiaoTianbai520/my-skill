@@ -1,0 +1,7 @@
+interface:
+  display_name: "PlantUML Diagram Generator"
+  short_description: "Create monochrome UML-style PlantUML diagrams"
+  default_prompt: "Use $plantuml to create and render a monochrome UML-style diagram for my description."
+
+policy:
+  allow_implicit_invocation: true

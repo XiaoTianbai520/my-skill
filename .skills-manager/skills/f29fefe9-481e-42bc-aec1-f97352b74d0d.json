@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "f29fefe9-481e-42bc-aec1-f97352b74d0d",
+  "path": "krea",
+  "path_key": "krea",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

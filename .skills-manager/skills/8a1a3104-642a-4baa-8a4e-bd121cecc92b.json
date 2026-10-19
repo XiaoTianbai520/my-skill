@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "8a1a3104-642a-4baa-8a4e-bd121cecc92b",
+  "path": "docx",
+  "path_key": "docx",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

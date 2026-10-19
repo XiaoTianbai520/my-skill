@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "7559b7f3-9a71-4647-8397-bc211c4ff8d4",
+  "path": "code-naming-convention",
+  "path_key": "code-naming-convention",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

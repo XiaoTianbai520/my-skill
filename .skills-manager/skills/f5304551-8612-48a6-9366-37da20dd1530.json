@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "f5304551-8612-48a6-9366-37da20dd1530",
+  "path": "openapi-example-inject",
+  "path_key": "openapi-example-inject",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

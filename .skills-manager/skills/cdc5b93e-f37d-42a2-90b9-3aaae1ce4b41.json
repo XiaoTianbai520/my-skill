@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "cdc5b93e-f37d-42a2-90b9-3aaae1ce4b41",
+  "path": "slow-download-fix",
+  "path_key": "slow-download-fix",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
