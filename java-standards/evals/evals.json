@@ -1,0 +1,50 @@
+{
+  "skill_name": "java-standards",
+  "evals": [
+    {
+      "id": 1,
+      "name": "tenant-page-query",
+      "prompt": "请按 oneCoupon 项目现有风格，为 merchant-admin 优惠券模板分页查询增加可选状态筛选。只输出拟修改的 DTO、Controller、Service、Mapper（如有必要）关键片段和验证方案到 answer.md，不修改业务源码，不执行构建或连接中间件。要求列表只能看到当前店铺数据。请说明包路径、返回类型和新增校验，不改现有分页协议。",
+      "expected_output": "沿用 ReqDTO/RespDTO、MyBatis-Plus Page/IPage、Service 分层、可信 UserContext 店铺条件、Result/Results、状态枚举及相邻接口，识别构建与测试副作用。",
+      "files": [],
+      "assertions": [
+        "新增可选状态字段并用实际枚举/成员集合验证非空状态；不把 Schema 当运行时校验。",
+        "Service 从 UserContext 取得店铺，缺失时拒绝或复用明确保证；查询无条件保留店铺隔离，不能信任请求店铺。",
+        "延续 ReqDTO/RespDTO、Page/IPage、Lambda Wrapper 和 DTO 转换，Controller 不直接访问 Mapper。",
+        "Controller 保留现有路由/Result 泛型、Results.success 和接口文档风格；若无需修改则明确说明。",
+        "验证方案识别 Spotless compile/apply 的修改行为和已删除版权模板，用 skip 方式避免副作用；区分实际执行与计划，检查测试发现及外部依赖。"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "atomic-stock-decrement",
+      "prompt": "给 oneCoupon 增加一个商家扣减模板库存的接口，支持正整数 decrementStock，不能跨店铺扣减，也不能超卖。请给出 Controller、请求 DTO、Service、Mapper/XML 的关键代码片段，并解释数据库、Redis 与防重复提交的边界。只写 answer.md，不改业务源码，不连接中间件。允许复用现有实现；说明你的验证方案与尚未验证事项。",
+      "expected_output": "条件 UPDATE 同时含店铺、模板、stock>=扣减量，检查更新行数；业务异常、输入校验、统一响应；不把 HTTP 防重或本地事务说成跨资源/长期幂等保证。",
+      "files": [],
+      "assertions": [
+        "DTO 与 Service 明确验证 decrementStock 为正且 ID 合法，店铺身份来自可信上下文并校验缺失。",
+        "参数化 UPDATE 同时包含 stock = stock - 扣减量、shop_number、id、stock >= 扣减量，而非 Java 读改写；Mapper/XML 参数对应。",
+        "Service 检查影响行数并用项目异常处理更新失败，Controller 只调用 Service、返回 Result/Results。",
+        "解释 NoDuplicateSubmit 只限制并发持锁，不承诺长期幂等或只扣减一次；需要业务幂等时另有唯一键/持久化方案。",
+        "说明本地事务不覆盖 Redis，给出缓存更新/失效与失败恢复边界，不把 Lua/分布式锁当跨资源事务。",
+        "验证方案包含跨店铺、非正数、库存不足/边界、并发或重试，且不声称执行了被禁止的构建或集成测试。"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "transaction-mq-review",
+      "prompt": "审查一个拟加入 oneCoupon 的 Java 实现：@Transactional 方法先 couponTaskMapper.insert(task)，随后 executorService.execute(() -> mapper.selectById(task.getId()))，再 producer.sendMessage(event)；消费者在 @NoMQDuplicateConsume 下从 UserContext.getUserId() 取用户，catch(Exception e) 只打日志并 return。有人认为这些注解保证消息不丢、只执行一次且身份安全。请写 answer.md，指出风险、适合本项目的最小修复方案与可靠性要求更高时的方案，核对本仓库幂等组件和构建验证方式。只审查，不修改业务源码、不执行构建或外部服务操作。",
+      "expected_output": "识别提交前消费、线程上下文缺失、吞异常破坏重试、去重 TTL 和代理边界；区分提交后回调与可靠 outbox，保留事件/包装器/环境 topic 协议；核对 Spotless 和集成测试副作用。",
+      "files": [],
+      "assertions": [
+        "指出异步任务/MQ 早于数据库事务提交造成读不到记录或回滚后仍有消息，并确认代理生效/异常传播问题。",
+        "指出消费者 UserContext 无请求身份保证，建议从经过校验的事件获取用户/店铺/分片键。",
+        "指出 catch 后 return 会确认失败并破坏 MQ 重试及去重语义，建议失败重新抛出。",
+        "核对 NoMQDuplicateConsume 的 CONSUMING/CONSUMED、TTL、失败删除标记；明确其不是数据库事务或永久 exactly-once 保证。",
+        "区分提交后回调降低早消费与可靠送达；指出回调存在宕机窗口，并给出 outbox/事务消息等持久化方案。",
+        "方案沿用项目 Event/MessageWrapper/发送模板及环境 topic/group 约定，不凭空声称已有 outbox 或可靠认证。",
+        "核对 Spotless compile/apply、版权模板缺失与 skip 验证方式；说明测试依赖和发现风险，未虚报实际构建/外部测试。"
+      ]
+    }
+  ]
+}

@@ -1,27 +1,14 @@
 # Your machine
 
-**This file is yours, not the kit's.** It holds the facts about THIS install: where ComfyUI lives, what GPUs
-are in the box, how to start the server when it is down. The installer creates it once and then never touches
-it again, so a `git pull` plus a reinstall cannot wipe what the bootstrap learned. Nothing here ships back to
-the repo.
+Detected 2026-10-25 for HuiMeng acceptance. User starts ComfyUI manually; connect only, do not auto-start or restart.
 
-**If the values below are still angle brackets, the bootstrap has not run.** Run it on the first ComfyUI task:
-call the MCP `health_check` (or `comfy_client.alive()` plus `GET /system_stats` and `/object_info`) and rewrite
-this file with the real values. See `BOOTSTRAP.md`. Do not assume another machine matches an example.
-
-- **ComfyUI**: `<Desktop or source install>`, core path `<detect>`, API at **`http://127.0.0.1:8188`**
-  (alive when the server or app is running). Check: `GET /system_stats` -> 200.
-- **GPUs**: `<N>x <model>` (`cuda:0`, `cuda:1`, ...). VRAM per card `<detect>`.
-- **Models installed** (query live, never hardcode): `GET /object_info/UNETLoader`,
-  `/object_info/CheckpointLoaderSimple`, `/object_info/CLIPLoader`, `/object_info/VAELoader`.
-- **Shared models dir / extra_model_paths**: `<detect from the startup log or extra_model_paths.yaml>`.
-- **GUI workflows folder** (the bridge back to the app): `<ComfyUI>/user/default/workflows/`.
-- **Template library**: `<path to the workflow_templates clone>`. This one is load-bearing and easy to skip:
-  `TASKS.md` opens every job by reading `templates/_quick_index.json` under this path, so leaving it blank
-  makes step 1 of every recipe dead. The installer's default target is
-  `~/comfyui-agent-kit-data/workflow_templates`; if you cloned it somewhere else, write that path here.
-- **Launch command** (to start the server headlessly when :8188 is down): `<detect>`. For a source install
-  that is `python main.py` in the ComfyUI dir; for Desktop it is the venv python plus `main.py` plus
-  `--base-directory` or `--extra-model-paths-config`.
-- **Known local quirks**: `<anything this machine does that the docs do not predict>`. Record them as you hit
-  them. This is the half of the file that saves the most time later.
+- **ComfyUI**: Windows portable, core `M:/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/ComfyUI`, API `http://127.0.0.1:8188`, version 0.37.0.
+- **GPU**: cuda:0 NVIDIA GeForce RTX 3060 : cudaMallocAsync; VRAM 12884377600 bytes; RAM 34138939392 bytes.
+- **Model drive free**: 82484953088 bytes at detection. No downloads authorized for this acceptance.
+- **Models verified live**: `qwen_image_2.1_int8_convrot.safetensors`, `qwen3vl_8b_w4a8.safetensors`, `qwen_image_vae.safetensors`; query object_info before future use. Other families not inventoried.
+- **Models dir**: `M:/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/ComfyUI/models`; shared/extra model paths not exhaustively inventoried.
+- **GUI workflows**: `M:/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/ComfyUI/user/default/workflows`; `HuiMeng-M2-acceptance.json` saved.
+- **Templates**: installed package `M:/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/comfyui_workflow_templates_json/templates`; separate template clone and `_quick_index.json` not configured. HuiMeng reuses its confirmed provider fixture, without replacing/updating workflows.
+- **Launch**: user opens `run_nvidia_gpu.bat` in the portable parent. It runs `python_embeded/python.exe -s ComfyUI/main.py --windows-standalone-build --enable-manager`. Detected from launcher and live argv; no duplicate startup test because user selected manual startup.
+- **Quirks**: sandbox socket denial does not imply API is down; retry authorized localhost inspection outside sandbox. User-approved project `.comfyui-agent.json` startPolicy is `connect`.
+- **Smoke check**: current Qwen generated a 1024x1024 PNG in 50 seconds; viewed and saved in HuiMeng validation evidence. No remote key or node install/update.
