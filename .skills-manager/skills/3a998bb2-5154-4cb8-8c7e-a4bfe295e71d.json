@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "3a998bb2-5154-4cb8-8c7e-a4bfe295e71d",
+  "path": "speckit-constitution",
+  "path_key": "speckit-constitution",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "b428d279-314f-4ff0-82bd-5add81e53e01",
+  "path": "speckit-analyze",
+  "path_key": "speckit-analyze",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

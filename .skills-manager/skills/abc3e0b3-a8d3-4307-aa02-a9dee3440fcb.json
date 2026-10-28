@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "abc3e0b3-a8d3-4307-aa02-a9dee3440fcb",
+  "path": "speckit-plan",
+  "path_key": "speckit-plan",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
